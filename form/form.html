@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Básico</title>
+</head>
+<body>
+    <h1>Formulario Básico</h1>
+    <form action="/enviar" method="post">
+        <!-- Campo de texto -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="name" placeholder="Escribe tu nombre" required>
+        <br><br>
+
+        <!-- Campo de teléfono -->
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="phone" placeholder="Escribe tu número de teléfono" required>
+        <br><br>
+
+        <!-- Botón para enviar -->
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
