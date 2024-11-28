@@ -1,0 +1,84 @@
+button {
+    border: solid;
+    border-radius: 1rem;
+    border-width: 0.1rem;
+    color: var(--header);
+    background-color: var(--fondo);
+    margin-top: 1rem;
+  }
+
+  input:invalid {
+    border: 2px solid red;
+  }
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+}
+
+.user div {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.user div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.datos-personales {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal label {
+    display: block;
+}
+
+.personal {
+    display: flex;
+    flex-direction: row;
+}
+
+.personal div {
+    padding: 1rem;
+}
+
+.personal-second {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;  
+    padding: 2rem;
+}
+
+.account{
+    display: flex;
+    flex-direction: row;
+}
+
+.text-area {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 509px; height: 146px;
+}
+
+.row-account{
+    display: flex;
+    flex-direction: column;
+}
+
+.row-account div {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
