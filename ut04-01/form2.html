@@ -119,10 +119,11 @@
                 <hr>
                 <div class="text-area">
                     <label for="titulo">Título</label>
-                    <input name="titulo" type="text" placeholder="Título" required>
-
+                    <input id="title" name="titulo" type="text" maxlength="15" placeholder="Título" required>
+                    <span id="titleCount">0/15</span>
                     <label for="area" rows="4" cols="50">Descripcion</label required>
-                    <textarea name="area"></textarea>
+                    <textarea id="area" name="area" maxlength="120"></textarea>
+                    <span id="areaCount">0/120</span>
                 </div>
             </div>
             <button type="submit">Enviar</button>
@@ -130,4 +131,5 @@
     </form>
 </body>
 <script src="js/script.js"></script>
+
 </html>

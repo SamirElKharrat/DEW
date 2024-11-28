@@ -1,3 +1,14 @@
+
+let titleCount = document.getElementById("titleCount");
+document.getElementById("title").addEventListener("keydown", (e) => {
+    titleCount.innerHTML = e.target.value.length + "/15";
+})
+
+let areaCount = document.getElementById("areaCount");
+document.getElementById("area").addEventListener("keydown", (e) => {
+    areaCount.innerHTML = e.target.value.length + "/120";
+})
+
 function ChangeState() {
     let dni = document.getElementById("dni");
     let value = document.getElementById("stateSelect").value;
@@ -22,3 +33,4 @@ function passChange() {
     pass.type = isPassword ? 'text' : 'password';
     label.textContent = isPassword ? 'Ocultar' : 'Mostrar';
 }
+
