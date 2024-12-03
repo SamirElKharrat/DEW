@@ -17,6 +17,12 @@ button {
     align-items: center;
 }
 
+.error {
+    color: red;
+    font-size: 14px;
+    display: none;  
+}
+
 .user {
     display: flex;
     flex-direction: row;

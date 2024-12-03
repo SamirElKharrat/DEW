@@ -36,7 +36,7 @@
                 <div class="personal">
                     <div>
                         <label for="Nombre">Nombre</label>
-                        <input type="text" name="Nombre" placeholder="Nombre" required>
+                        <input type="text" name="Nombre" id="name" placeholder="Nombre" required>
                     </div>
                     <div>
                         <label for="Apellidos">Apellidos</label>
@@ -46,20 +46,21 @@
                 <div class="personal">
                     <div>
                         <label for="Telefono ">Teléfono</label>
-                        <input type="tel" name="Telefono" placeholder="Nombre" pattern="[0-9]+" required>
+                        <input type="tel" name="Telefono" placeholder="Telefono" pattern="[0-9]{9}" maxlength="9"  required>
                     </div>
                     <div>
                         <label for="CodigoPostal">Codigo postal</label>
-                        <input type="text" name="CodigoPostal " placeholder="38XX" pattern="38[0-9]{3}" maxlength="5"
+                        <input type="text" id="postal" name="CodigoPostal" placeholder="38XX" pattern="38[0-9]{3}"
                             required>
                     </div>
                 </div>
                 <div class="personal-second">
                     <div>
                         <label for="dni">DNI/NIE</label>
+                        <span class="error" id="dniError"></span>
                         <div>
                             <select id="stateSelect" onchange="ChangeState()" name="TipoDocumento" class="select-dni" required>
-                                <option value="none" selected>---</option>
+                                <option value="none" hidden selected>---</option>
                                 <option value="DNI">DNI</option>
                                 <option value="NIE">NIE</option>
                             </select>
@@ -94,27 +95,25 @@
                 <div class="row-account">
                     <label>Elige tus aficiones:</label>
                     <div>
-                        <input name="music" value="Musica" type="checkbox">
-                        <label for="music">Música</h>
-                        <input name="manual" value="Manualidades" type="checkbox">
-                        <label for="manual">Manualidades</label>
-
+                        <input name="hobbie" value="Musica" type="checkbox" id="hobbie1">
+                        <label for="hobbie1">Música</label>
+                        <input name="hobbie" value="Manualidades" type="checkbox" id="hobbie2">
+                        <label for="hobbie2">Manualidades</label>
                     </div>
                     <div>
-                        <input name="Deporte" value="Deportes" type="checkbox">
-                        <label for="Deporte">Deporte</h>
-                        <input type="hidden" name="Artes"/>
-                        <input value="Artes" type="checkbox">
-                        <label for="Artes">Artes</label>
+                        <input name="hobbie" value="Deportes" type="checkbox" id="hobbie3">
+                        <label for="hobbie3">Deporte</label>
+                        <input name="hobbie" value="Artes" type="checkbox" id="hobbie4">
+                        <label for="hobbie4">Artes</label>
                     </div>
                     <div>
-                        <input name="Juegos" value="Videojuegos" type="checkbox">
-                        <label for="Juegos">Videojuegos</h>
-                        <input name="Lectura" value="Lectura" type="checkbox">
-                        <label for="Lectura">Lectura</label>
+                        <input name="hobbie" value="Videojuegos" type="checkbox" id="hobbie5">
+                        <label for="hobbie5">Videojuegos</label>
+                        <input name="hobbie" value="Lectura" type="checkbox" id="hobbie6">
+                        <label for="hobbie6">Lectura</label>
                     </div>
                 </div>
-            </div>
+                <span id="errorCheck" class="error"></span>
             <div class="datos-publicacion">
                 <legend>Datos Publicación</legend>
                 <hr>

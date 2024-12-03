@@ -6,13 +6,34 @@ const DOM = {
     areaCount : document.getElementById("areaCount"),
     dni: document.getElementById("dni"),
     select : document.getElementById("stateSelect"),
+    dninieSelect: document.getElementById("stateSelect"),
     frm: document.getElementById("frm"),
+    nombre: document.getElementById("name"),
+    postal : document.getElementById("postal"),
+    errorCheck : document.getElementById("errorCheck"),
+    errorDni : document.getElementById("dniError"),
 }
 
 DOM.frm.addEventListener("submit", (e) => {
-    if(!DOM.title.validationMessage==""){
+
+    const checkboxes = document.querySelectorAll("input[name='hobbie']:checked");
+    if(checkboxes.length < 2) {
         e.preventDefault();
-        alert(DOM.nomnre.validationMessage)
+        DOM.errorCheck.textContent = "Selecciona al menos 2 aficiones";
+        DOM.errorCheck.style.display = "inline";
+    }
+    else{
+        DOM.errorCheck.textContent = "";
+        DOM.errorCheck.style.display = "none";
+    }
+    if(DOM.dninieSelect.value == "none"){
+        e.preventDefault();
+        DOM.errorDni.textContent = "Seleccione una de las dos opciones";
+        DOM.errorDni.style.display = "inline";
+    }
+    else{
+        DOM.errorDni.textContent = "";
+        DOM.errorDni.style.display = "none";
     }
 })
 
@@ -50,7 +71,6 @@ function ChangeState() {
 
 function passChange() {
     let pass = document.getElementById('pass');
-    let label = document.getElementById('checkpassLabel');
     let isPassword = pass.type === 'password';
 
     pass.type = isPassword ? 'text' : 'password';
