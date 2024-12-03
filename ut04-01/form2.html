@@ -10,19 +10,19 @@
 </head>
 
 <body>
-    <form method="post" action="https://www.w3schools.com/action_page.php" class="formulario">
+    <form id="frm" method="post" action="https://www.w3schools.com/action_page.php" class="formulario">
         <fieldset>
             <div class="datos-usuario">
                 <legend>Datos de Usuarios</legend>
                 <hr>
                 <div class="user">
                     <div>
-                        <label for="user">Nombre de Usuario</label>
-                        <input type="text" name="user" placeholder="UserName" minlength="3" required>
+                        <label for="NombreUsuario">Nombre de Usuario</label>
+                        <input type="text" name="NombreUsuario" placeholder="UserName" minlength="3" required>
                     </div>
                     <div>
-                        <label for="pass">Contraseña</label>
-                        <input type="password" id="pass" name="pass" placeholder="Introduce Contraseña" required>
+                        <label for="Contrasena">Contraseña</label>
+                        <input type="password" id="pass" name="Contrasena" placeholder="Introduce Contraseña" required>
                         <div>
                             <input onchange="passChange()" id="checkpass" name="checkpass" type="checkbox">
                             <label id="checkpassLabel" for="checkpass">Mostrar contraseña</label>
@@ -35,22 +35,22 @@
                 <hr>
                 <div class="personal">
                     <div>
-                        <label for="name">Nombre</label>
-                        <input type="text" name="name" placeholder="Nombre" required>
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" name="Nombre" placeholder="Nombre" required>
                     </div>
                     <div>
-                        <label for="surname">Apellidos</label>
-                        <input type="text" name="surname" placeholder="Apellidos" required>
+                        <label for="Apellidos">Apellidos</label>
+                        <input type="text" name="Apellidos" placeholder="Apellidos" required>
                     </div>
                 </div>
                 <div class="personal">
                     <div>
-                        <label for="tel">Teléfono</label>
-                        <input type="tel" name="tel" placeholder="Nombre" pattern="[0-9]+" required>
+                        <label for="Telefono ">Teléfono</label>
+                        <input type="tel" name="Telefono" placeholder="Nombre" pattern="[0-9]+" required>
                     </div>
                     <div>
-                        <label for="surname">Codigo postal</label>
-                        <input type="text" name="surname" placeholder="38XX" pattern="38[0-9]{3}" maxlength="5"
+                        <label for="CodigoPostal">Codigo postal</label>
+                        <input type="text" name="CodigoPostal " placeholder="38XX" pattern="38[0-9]{3}" maxlength="5"
                             required>
                     </div>
                 </div>
@@ -58,26 +58,26 @@
                     <div>
                         <label for="dni">DNI/NIE</label>
                         <div>
-                            <select id="stateSelect" onchange="ChangeState()" name="select" class="select-dni">
+                            <select id="stateSelect" onchange="ChangeState()" name="TipoDocumento" class="select-dni" required>
                                 <option value="none" selected>---</option>
                                 <option value="DNI">DNI</option>
                                 <option value="NIE">NIE</option>
                             </select>
-                            <input id="dni" type="text" name="dni" placeholder="DNI/NIE" maxlength="9" disabled
+                            <input id="dni" type="text" name="DniNie" placeholder="DNI/NIE" maxlength="9" disabled
                                 required>
                         </div>
                     </div>
                     <div>
                         <label>Crear cuenta como</label>
                         <div class="account">
-                            <input name="check" type="radio">
-                            <label for="check">Particular</h>
-                                <input name="check" type="radio">
-                                <label for="check">Empresa</label>
+                            <input name="CuentaComo" value="Particular" type="radio">
+                            <label for="CuentaComo">Particular</h>
+                            <input name="CuentaComo" value="Empresa" type="radio">
+                            <label for="CuentaComo">Empresa</label>
                         </div>
                     </div>
                     <div>
-                        <select name="year-select" class="select-year">
+                        <select name="AnioNacimiento" class="select-year">
                             <option value="2010" selected>2010</option>
                             <option value="2009">2009</option>
                             <option value="2008">2008</option>
@@ -94,23 +94,24 @@
                 <div class="row-account">
                     <label>Elige tus aficiones:</label>
                     <div>
-                        <input name="music" type="checkbox">
+                        <input name="music" value="Musica" type="checkbox">
                         <label for="music">Música</h>
-                            <input name="manual" type="checkbox">
-                            <label for="manual">Manualidades</label>
+                        <input name="manual" value="Manualidades" type="checkbox">
+                        <label for="manual">Manualidades</label>
 
                     </div>
                     <div>
-                        <input name="sport" type="checkbox">
-                        <label for="sport">Deporte</h>
-                            <input name="art" type="checkbox">
-                            <label for="art">Artes</label>
+                        <input name="Deporte" value="Deportes" type="checkbox">
+                        <label for="Deporte">Deporte</h>
+                        <input type="hidden" name="Artes"/>
+                        <input value="Artes" type="checkbox">
+                        <label for="Artes">Artes</label>
                     </div>
                     <div>
-                        <input name="games" type="checkbox">
-                        <label for="games">Videojuegos</h>
-                            <input name="read" type="checkbox">
-                            <label for="read">Lectura</label>
+                        <input name="Juegos" value="Videojuegos" type="checkbox">
+                        <label for="Juegos">Videojuegos</h>
+                        <input name="Lectura" value="Lectura" type="checkbox">
+                        <label for="Lectura">Lectura</label>
                     </div>
                 </div>
             </div>
@@ -118,11 +119,11 @@
                 <legend>Datos Publicación</legend>
                 <hr>
                 <div class="text-area">
-                    <label for="titulo">Título</label>
-                    <input id="title" name="titulo" type="text" maxlength="15" placeholder="Título" required>
+                    <label for="PublicacionTitulo">Título</label>
+                    <input id="title" name="PublicacionTitulo" type="text" minlength="4" maxlength="15" placeholder="Título" required>
                     <span id="titleCount">0/15</span>
-                    <label for="area" rows="4" cols="50">Descripcion</label required>
-                    <textarea id="area" name="area" maxlength="120"></textarea>
+                    <label for="PublicacionDescripcion" rows="4" cols="50">Descripcion</label>
+                    <textarea id="area" name="PublicacionDescripcion" minlength="4" maxlength="120" required></textarea>
                     <span id="areaCount">0/120</span>
                 </div>
             </div>
