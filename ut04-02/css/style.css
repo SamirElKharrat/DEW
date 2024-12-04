@@ -7,10 +7,6 @@ button {
     margin-top: 1rem;
   }
 
-  input:valid {
-    border: 2px solid green;
-  }
-
   input:invalid {
     border: 2px solid red;
   }
@@ -117,4 +113,17 @@ textarea {
 
 .word {
     justify-content: end;
+}
+
+.div-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.div-error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
