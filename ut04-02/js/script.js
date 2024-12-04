@@ -28,6 +28,24 @@ DOM.frm.addEventListener("submit", (e) => {
         DOM.erroresDiv.removeChild(DOM.erroresDiv.firstChild);
     }
 
+    let inputs = document.querySelectorAll("input");
+
+    inputs.forEach(e => {
+        if(!e.validationMessage == ""){
+            let span = document.createElement("span");
+            span.textContent = `${e.name} = ${e.validationMessage}`;
+            span.style.color = "red";
+            DOM.erroresDiv.appendChild(span);
+        }
+    });
+
+    if(!DOM.area.validationMessage == ""){
+        let span = document.createElement("span");
+        span.textContent = `${DOM.area.name} = ${DOM.area.validationMessage}`;
+        span.style.color = "red";
+        DOM.erroresDiv.appendChild(span);
+    }
+
     //Para cambiar los valores por sus 2 primeras palabras
     const Aficiones = {
         "Musica": "MU",
@@ -49,27 +67,14 @@ DOM.frm.addEventListener("submit", (e) => {
         e.preventDefault();
         DOM.errorRadio.textContent = "Selecciona al menos 1 cuenta";
         DOM.errorRadio.style.display = "inline";
-    }
-    else {
-        DOM.errorRadio.textContent = "";
-        DOM.errorRadio.style.display = "none";
-    }
-
-    //Compruebo que se seleccionaron minimo 2 aficiones
-    if (checkboxes.length < 2) {
-        e.preventDefault();
-        DOM.errorCheck.textContent = "Selecciona al menos 2 aficiones";
-        DOM.errorCheck.style.display = "inline";
         let span = document.createElement("span");
-        span.textContent = `Aficiones = ${DOM.errorCheck.textContent}`; 
+        span.textContent = `CuentaComo = ${DOM.errorRadio.textContent}`;
         span.style.color = "red";
         DOM.erroresDiv.appendChild(span);
     }
     else {
-        let checks = checkboxes.map(hobbie => Aficiones[hobbie.value]);
-        DOM.aficiones.value = checks.join(",")
-        DOM.errorCheck.textContent = "";
-        DOM.errorCheck.style.display = "none";
+        DOM.errorRadio.textContent = "";
+        DOM.errorRadio.style.display = "none";
     }
 
     //Compruebo que haya seleccionado DNI o NIE
@@ -78,7 +83,7 @@ DOM.frm.addEventListener("submit", (e) => {
         DOM.errorDni.textContent = "Seleccione una de las dos opciones";
         DOM.errorDni.style.display = "inline";
         let span = document.createElement("span");
-        span.textContent = `TipoDocumento = ${DOM.errorDniText.textContent}`; 
+        span.textContent = `TipoDocumento = ${DOM.errorDni.textContent}`;
         span.style.color = "red";
         DOM.erroresDiv.appendChild(span);
     }
@@ -91,9 +96,26 @@ DOM.frm.addEventListener("submit", (e) => {
     if (!DOM.dni.validationMessage == "" || DOM.errorDniText.textContent == "FORMATO INCORRECTO") {
         e.preventDefault();
         let span = document.createElement("span");
-        span.textContent = `DnieNie = ${DOM.errorDniText.textContent}`; 
+        span.textContent = `DnieNie = ${DOM.errorDniText.textContent}`;
         span.style.color = "red";
         DOM.erroresDiv.appendChild(span);
+    }
+
+    //Compruebo que se seleccionaron minimo 2 aficiones
+    if (checkboxes.length < 2) {
+        e.preventDefault();
+        DOM.errorCheck.textContent = "Selecciona al menos 2 aficiones";
+        DOM.errorCheck.style.display = "inline";
+        let span = document.createElement("span");
+        span.textContent = `Aficiones = ${DOM.errorCheck.textContent}`;
+        span.style.color = "red";
+        DOM.erroresDiv.appendChild(span);
+    }
+    else {
+        let checks = checkboxes.map(hobbie => Aficiones[hobbie.value]);
+        DOM.aficiones.value = checks.join(",")
+        DOM.errorCheck.textContent = "";
+        DOM.errorCheck.style.display = "none";
     }
 
 })
@@ -146,20 +168,20 @@ DOM.dni.addEventListener('blur', (e) => {
         if (/^[XYZ]?\d{7,8}[A-Z]$/.test(nie)) {
 
             let numero = nie;
-            if(nie.startsWith("X")) numero = "0" + nie.slice(1);
-            if(nie.startsWith("Y")) numero = "1" + nie.slice(1);
-            if(nie.startsWith("Z")) numero = "2" + nie.slice(1);
+            if (nie.startsWith("X")) numero = "0" + nie.slice(1);
+            if (nie.startsWith("Y")) numero = "1" + nie.slice(1);
+            if (nie.startsWith("Z")) numero = "2" + nie.slice(1);
 
             let numeroSinLetra = parseInt(numero.slice(0, -1), 10);
             let letra = nie.slice(-1);
             let letraCorrecta = letras[numeroSinLetra % 23];
 
-            if(letra == letraCorrecta) {
+            if (letra == letraCorrecta) {
                 DOM.errorDniText.textContent = "DNI VALIDO";
                 DOM.errorDniText.style.color = "green";
                 DOM.errorDniText.display = "none";
             }
-            else{
+            else {
                 DOM.errorDniText.textContent = "FORMATO INCORRECTO";
                 DOM.errorDniText.style.color = "red";
             }
