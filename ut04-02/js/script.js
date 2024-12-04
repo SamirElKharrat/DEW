@@ -15,6 +15,7 @@ const DOM = {
     errorDni : document.getElementById("dniError"),
     yearSelect : document.getElementById("year-select"),
     telInput : document.getElementById('telInput'),
+    aficiones : document.getElementById("aficionesFormat"),
     
 }
 
@@ -29,6 +30,7 @@ for(let year = yearStart; year <= yearEnd; year ++){
     DOM.yearSelect.appendChild(option);
 }
 
+//Para que se ponga automaticamente el +34 y no lo pueda quitar el usuario
 DOM.telInput.addEventListener('input', () => {
     if (!telInput.value.startsWith('(+34)')) {
         telInput.value = '(+34)';
@@ -38,8 +40,23 @@ DOM.telInput.addEventListener('input', () => {
 
 DOM.frm.addEventListener("submit", (e) => {
 
-    const checkboxes = document.querySelectorAll("input[name='hobbie']:checked");
+    //Para cambiar los valores por sus 2 primeras palabras
+    const Aficiones = {
+        "Musica": "MU",
+        "Deportes": "DE",
+        "Videojuegos": "VI",
+        "Manualidades": "MA",
+        "Artes": "AR",
+        "Lectura": "LE"
+    };
+
+    //Creo una array con los nodos que me llegan
+    const checkboxes = Array.from(document.querySelectorAll("input[name='Aficiones']:checked"));
+
+    //Nodos con los radios seleccionados
     const radios = document.querySelectorAll("input[type=radio]:checked");
+
+    //Compruebo que se haya seleccionado una cuentaComo
     if(radios.length < 1) {
         e.preventDefault();
         DOM.errorRadio.textContent = "Selecciona al menos 1 cuenta";
@@ -49,15 +66,21 @@ DOM.frm.addEventListener("submit", (e) => {
         DOM.errorRadio.textContent = "";
         DOM.errorRadio.style.display = "none";
     }
+
+    //Compruebo que se seleccionaron minimo 2 aficiones
     if(checkboxes.length < 2) {
         e.preventDefault();
         DOM.errorCheck.textContent = "Selecciona al menos 2 aficiones";
         DOM.errorCheck.style.display = "inline";
     }
     else{
+        let checks = checkboxes.map(hobbie => Aficiones[hobbie.value]);
+        DOM.aficiones.value = checks.join(",")
         DOM.errorCheck.textContent = "";
         DOM.errorCheck.style.display = "none";
     }
+
+    //Compruebo que haya seleccionado DNI o NIE
     if(DOM.dninieSelect.value == "none"){
         e.preventDefault();
         DOM.errorDni.textContent = "Seleccione una de las dos opciones";
@@ -70,6 +93,7 @@ DOM.frm.addEventListener("submit", (e) => {
 
 })
 
+//Añadi un valor por cada letra escrita en Titulo
 DOM.title.addEventListener("keydown", (e) => {
     let currentLength = DOM.title.value.length + 1;
     if (e.key === "Backspace") {
@@ -79,6 +103,7 @@ DOM.title.addEventListener("keydown", (e) => {
 
 })
 
+//Añadi un valor por cada letra escrita en TextArea
 DOM.area.addEventListener("keydown", (e) => {
     let currentLength = DOM.area.value.length + 1;
     if (e.key === "Backspace") {
@@ -87,6 +112,7 @@ DOM.area.addEventListener("keydown", (e) => {
     DOM.areaCount.textContent  = `${currentLength}/120`;
 })
 
+//Para cambiar el pattern dependiendo de lo que se elija
 function ChangeState() {
     let value = DOM.select.value;
     const patterns = {
@@ -102,6 +128,7 @@ function ChangeState() {
     }
 }
 
+//Para mostrar la contraseña
 function passChange() {
     let pass = document.getElementById('pass');
     let isPassword = pass.type === 'password';
