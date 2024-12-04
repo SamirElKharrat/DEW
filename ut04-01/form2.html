@@ -24,7 +24,7 @@
                     <div>
                         <label for="Contrasena">Contraseña</label>
                         <input type="password" id="pass" name="Contrasena" maxlength="8" pattern="[0-9]{8}" placeholder="Introduce Contraseña" required>
-                        <span class="error-message">Campo obligatorio</span>
+                        <span class="error-message">Campo obligatorio, SOLO NUMEROS</span>
                         <div>
                             <input onchange="passChange()" id="checkpass" name="checkpass" type="checkbox">
                             <label id="checkpassLabel" for="checkpass">Mostrar contraseña</label>
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div>
-                        <label>Crear cuenta como</label>
+                        <label>Crear cuenta como(Selecciona 1)</label>
                         <div class="account">
                             <input name="CuentaComo1" value="Particular" type="radio">
                             <label for="CuentaComo">Particular</h>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="row-account">
-                    <label>Elige tus aficiones:</label>
+                    <label>Elige tus aficiones(Selecciona al menos 2):</label>
                     <div>
                         <input name="hobbie" value="Musica" type="checkbox" id="hobbie1">
                         <label for="hobbie1">Música</label>
