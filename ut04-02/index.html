@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="css/style.css" as="style">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Formulario 1 DEW</title>
+</head>
+
+<body>
+    <form id="frm" method="post" action="https://www.w3schools.com/action_page.php" class="formulario">
+        <fieldset>
+            <div class="datos-usuario">
+                <legend>Datos de Usuarios</legend>
+                <hr>
+                <div class="user">
+                    <div>
+                        <label for="NombreUsuario">Nombre de Usuario</label>
+                        <input type="text" name="NombreUsuario" placeholder="UserName" minlength="4" maxlength="20" required>
+                        <span class="error-message">Campo obligatorio</span>
+                    </div>
+                    <div>
+                        <label for="Contrasena">Contraseña</label>
+                        <input type="password" id="pass" name="Contrasena" maxlength="8" pattern="[0-9]{8}" placeholder="Introduce Contraseña" required>
+                        <span class="error-message">Campo obligatorio, SOLO NUMEROS</span>
+                        <div>
+                            <input onchange="passChange()" id="checkpass" name="checkpass" type="checkbox">
+                            <label id="checkpassLabel" for="checkpass">Mostrar contraseña</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="datos-personales">
+                <legend>Datos Personales</legend>
+                <hr>
+                <div class="personal">
+                    <div>
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" name="Nombre" id="name" placeholder="Nombre" minlength="4" maxlength="20" required>
+                        <span class="error-message">Campo obligatorio</span>
+                    </div>
+                    <div>
+                        <label for="Apellidos">Apellidos</label>
+                        <input type="text" name="Apellidos" placeholder="Apellidos" minlength="4" maxlength="20" required>
+                        <span class="error-message">Campo obligatorio</span>
+                    </div>
+                </div>
+                <div class="personal">
+                    <div>
+                        <label for="Telefono ">Teléfono</label>
+                        <input id="telInput" type="tel" name="Telefono" placeholder="(+34)922123123" pattern="\(\+34\)922[0-9]{6}" maxlength="14" required>
+                        <span class="error-message">Campo obligatorio</span>
+                    </div>
+                    <div>
+                        <label for="CodigoPostal">Codigo postal</label>
+                        <input type="text" id="postal" name="CodigoPostal" placeholder="38XX" pattern="38[0-9]{3}"
+                            required>
+                        <span class="error-message">Campo obligatorio</span>
+                    </div>
+                </div>
+                <div class="personal-second">
+                    <div>
+                        <label for="dni">DNI/NIE</label>
+                        <span class="error" id="dniError"></span>
+                        <div>
+                            <select id="stateSelect" onchange="ChangeState()" name="TipoDocumento" class="select-dni" required>
+                                <option value="none" hidden selected>---</option>
+                                <option value="DNI">DNI</option>
+                                <option value="NIE">NIE</option>
+                            </select>
+                            <input id="dni" type="text" name="DniNie" placeholder="DNI/NIE" maxlength="9" disabled
+                                required>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Crear cuenta como(Selecciona 1)</label>
+                        <div class="account">
+                            <input name="CuentaComo1" value="Particular" type="radio">
+                            <label for="CuentaComo">Particular</h>
+                            <input name="CuentaComo2" value="Empresa" type="radio">
+                            <label for="CuentaComo">Empresa</label>
+                        </div>
+                        <span id="errorRadio" class="error"></span>
+                    </div>
+                    <div>
+                        <select id="year-select" name="AnioNacimiento">
+                        </select>
+                    </div>
+                </div>
+                <div class="row-account">
+                    <label>Elige tus aficiones(Selecciona al menos 2):</label>
+                    <div>
+                        <input name="hobbie" value="Musica" type="checkbox" id="hobbie1">
+                        <label for="hobbie1">Música</label>
+                        <input name="hobbie" value="Manualidades" type="checkbox" id="hobbie2">
+                        <label for="hobbie2">Manualidades</label>
+                    </div>
+                    <div>
+                        <input name="hobbie" value="Deportes" type="checkbox" id="hobbie3">
+                        <label for="hobbie3">Deporte</label>
+                        <input name="hobbie" value="Artes" type="checkbox" id="hobbie4">
+                        <label for="hobbie4">Artes</label>
+                    </div>
+                    <div>
+                        <input name="hobbie" value="Videojuegos" type="checkbox" id="hobbie5">
+                        <label for="hobbie5">Videojuegos</label>
+                        <input name="hobbie" value="Lectura" type="checkbox" id="hobbie6">
+                        <label for="hobbie6">Lectura</label>
+                    </div>
+                </div>
+                <span id="errorCheck" class="error"></span>
+            <div class="datos-publicacion">
+                <legend>Datos Publicación</legend>
+                <hr>
+                <div class="text-area">
+                    <label for="PublicacionTitulo">Título</label>
+                    <input id="title" name="PublicacionTitulo" type="text" minlength="4" maxlength="15" placeholder="Título" required>
+                    <span class="error-message">Campo obligatorio</span>
+                    <span id="titleCount">0/15</span>
+                    <label for="PublicacionDescripcion" rows="4" cols="50">Descripcion</label>
+                    <textarea id="area" name="PublicacionDescripcion" minlength="4" maxlength="120" required></textarea>
+                    <span class="error-message">Campo obligatorio</span>
+                    <span id="areaCount">0/120</span>
+                </div>
+            </div>
+            <button type="submit">Enviar</button>
+        </fieldset>
+    </form>
+</body>
+<script src="js/script.js"></script>
+
+</html>

@@ -1,0 +1,120 @@
+button {
+    border: solid;
+    border-radius: 1rem;
+    border-width: 0.1rem;
+    color: var(--header);
+    background-color: var(--fondo);
+    margin-top: 1rem;
+  }
+
+  input:valid {
+    border: 2px solid green;
+  }
+
+  input:invalid {
+    border: 2px solid red;
+  }
+
+  input:invalid + .error-message {
+    display: block;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .error-message {
+    display: none;
+  }
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    display: none;  
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+
+.user div {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.user div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.datos-personales {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.personal label {
+    display: block;
+}
+
+.personal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+
+.personal div {
+    padding: 1rem;
+}
+
+.personal-second {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+.personal-second > div {
+    margin-right: 1rem;
+}
+
+.personal-second select {
+    margin-left: 1rem;
+}
+
+.account{
+    display: flex;
+    flex-direction: row;
+}
+
+.text-area {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 625px; height: 155px;
+    resize: none;
+}
+
+.row-account{
+    display: flex;
+    flex-direction: column;
+}
+
+.row-account div {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+
+.word {
+    justify-content: end;
+}
