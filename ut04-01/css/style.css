@@ -7,8 +7,23 @@ button {
     margin-top: 1rem;
   }
 
+  input:valid {
+    border: 2px solid green;
+  }
+
   input:invalid {
     border: 2px solid red;
+  }
+
+  input:invalid + .error-message {
+    display: block;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .error-message {
+    display: none;
   }
 
 .formulario {

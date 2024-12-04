@@ -18,11 +18,13 @@
                 <div class="user">
                     <div>
                         <label for="NombreUsuario">Nombre de Usuario</label>
-                        <input type="text" name="NombreUsuario" placeholder="UserName" minlength="3" required>
+                        <input type="text" name="NombreUsuario" placeholder="UserName" minlength="4" maxlength="20" required>
+                        <span class="error-message">Campo obligatorio</span>
                     </div>
                     <div>
                         <label for="Contrasena">Contraseña</label>
-                        <input type="password" id="pass" name="Contrasena" placeholder="Introduce Contraseña" required>
+                        <input type="password" id="pass" name="Contrasena" maxlength="8" pattern="[0-9]{8}" placeholder="Introduce Contraseña" required>
+                        <span class="error-message">Campo obligatorio</span>
                         <div>
                             <input onchange="passChange()" id="checkpass" name="checkpass" type="checkbox">
                             <label id="checkpassLabel" for="checkpass">Mostrar contraseña</label>
@@ -36,22 +38,26 @@
                 <div class="personal">
                     <div>
                         <label for="Nombre">Nombre</label>
-                        <input type="text" name="Nombre" id="name" placeholder="Nombre" required>
+                        <input type="text" name="Nombre" id="name" placeholder="Nombre" minlength="4" maxlength="20" required>
+                        <span class="error-message">Campo obligatorio</span>
                     </div>
                     <div>
                         <label for="Apellidos">Apellidos</label>
-                        <input type="text" name="Apellidos" placeholder="Apellidos" required>
+                        <input type="text" name="Apellidos" placeholder="Apellidos" minlength="4" maxlength="20" required>
+                        <span class="error-message">Campo obligatorio</span>
                     </div>
                 </div>
                 <div class="personal">
                     <div>
                         <label for="Telefono ">Teléfono</label>
-                        <input type="tel" name="Telefono" placeholder="Telefono" pattern="[0-9]{9}" maxlength="9"  required>
+                        <input id="telInput" type="tel" name="Telefono" placeholder="(+34)922123123" pattern="\(\+34\)922[0-9]{6}" maxlength="14" required>
+                        <span class="error-message">Campo obligatorio</span>
                     </div>
                     <div>
                         <label for="CodigoPostal">Codigo postal</label>
                         <input type="text" id="postal" name="CodigoPostal" placeholder="38XX" pattern="38[0-9]{3}"
                             required>
+                        <span class="error-message">Campo obligatorio</span>
                     </div>
                 </div>
                 <div class="personal-second">
@@ -111,9 +117,11 @@
                 <div class="text-area">
                     <label for="PublicacionTitulo">Título</label>
                     <input id="title" name="PublicacionTitulo" type="text" minlength="4" maxlength="15" placeholder="Título" required>
+                    <span class="error-message">Campo obligatorio</span>
                     <span id="titleCount">0/15</span>
                     <label for="PublicacionDescripcion" rows="4" cols="50">Descripcion</label>
                     <textarea id="area" name="PublicacionDescripcion" minlength="4" maxlength="120" required></textarea>
+                    <span class="error-message">Campo obligatorio</span>
                     <span id="areaCount">0/120</span>
                 </div>
             </div>

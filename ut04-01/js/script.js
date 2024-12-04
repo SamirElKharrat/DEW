@@ -14,11 +14,12 @@ const DOM = {
     errorRadio : document.getElementById("errorRadio"),
     errorDni : document.getElementById("dniError"),
     yearSelect : document.getElementById("year-select"),
+    telInput : document.getElementById('telInput'),
     
 }
 
 
-const yearStart =  1970;
+const yearStart =  1920;
 const yearEnd = 2010;
 
 for(let year = yearStart; year <= yearEnd; year ++){
@@ -27,6 +28,12 @@ for(let year = yearStart; year <= yearEnd; year ++){
     option.textContent = year;
     DOM.yearSelect.appendChild(option);
 }
+
+DOM.telInput.addEventListener('input', () => {
+    if (!telInput.value.startsWith('(+34)')) {
+        telInput.value = '(+34)';
+    }
+  });
 
 
 DOM.frm.addEventListener("submit", (e) => {
