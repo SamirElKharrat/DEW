@@ -71,24 +71,15 @@
                     <div>
                         <label>Crear cuenta como</label>
                         <div class="account">
-                            <input name="CuentaComo" value="Particular" type="radio">
+                            <input name="CuentaComo1" value="Particular" type="radio">
                             <label for="CuentaComo">Particular</h>
-                            <input name="CuentaComo" value="Empresa" type="radio">
+                            <input name="CuentaComo2" value="Empresa" type="radio">
                             <label for="CuentaComo">Empresa</label>
                         </div>
+                        <span id="errorRadio" class="error"></span>
                     </div>
                     <div>
-                        <select name="AnioNacimiento" class="select-year">
-                            <option value="2010" selected>2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
-                            <option value="2006">2006</option>
-                            <option value="2005">2005</option>
-                            <option value="2004">2004</option>
-                            <option value="2003">2003</option>
-                            <option value="2002">2002</option>
-                            <option value="2001">2001</option>
+                        <select id="year-select" name="AnioNacimiento">
                         </select>
                     </div>
                 </div>

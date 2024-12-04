@@ -11,12 +11,37 @@ const DOM = {
     nombre: document.getElementById("name"),
     postal : document.getElementById("postal"),
     errorCheck : document.getElementById("errorCheck"),
+    errorRadio : document.getElementById("errorRadio"),
     errorDni : document.getElementById("dniError"),
+    yearSelect : document.getElementById("year-select"),
+    
 }
+
+
+const yearStart =  1970;
+const yearEnd = 2010;
+
+for(let year = yearStart; year <= yearEnd; year ++){
+    const option = document.createElement("option");
+    option.value = year;
+    option.textContent = year;
+    DOM.yearSelect.appendChild(option);
+}
+
 
 DOM.frm.addEventListener("submit", (e) => {
 
     const checkboxes = document.querySelectorAll("input[name='hobbie']:checked");
+    const radios = document.querySelectorAll("input[type=radio]:checked");
+    if(radios.length < 1) {
+        e.preventDefault();
+        DOM.errorRadio.textContent = "Selecciona al menos 1 cuenta";
+        DOM.errorRadio.style.display = "inline";
+    }
+    else{
+        DOM.errorRadio.textContent = "";
+        DOM.errorRadio.style.display = "none";
+    }
     if(checkboxes.length < 2) {
         e.preventDefault();
         DOM.errorCheck.textContent = "Selecciona al menos 2 aficiones";
@@ -35,6 +60,7 @@ DOM.frm.addEventListener("submit", (e) => {
         DOM.errorDni.textContent = "";
         DOM.errorDni.style.display = "none";
     }
+
 })
 
 DOM.title.addEventListener("keydown", (e) => {
