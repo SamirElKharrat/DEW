@@ -2,8 +2,6 @@ button {
     border: solid;
     border-radius: 1rem;
     border-width: 0.1rem;
-    color: var(--header);
-    background-color: var(--fondo);
     margin-top: 1rem;
   }
 
@@ -18,9 +16,11 @@ button {
     margin-top: 5px;
   }
 
-  .error-message {
+  input:valid + .error-message {
     display: none;
   }
+
+
 
 .formulario {
     display: flex;
