@@ -145,8 +145,8 @@ DOM.dni.addEventListener('blur', (e) => {
         let dni = DOM.dni.value.toUpperCase();
 
         if (/^\d{8}[A-Z]$/.test(dni)) {
-            let numero = parseInt(dni.substring(0, 8), 10);
-            let letra = dni.charAt(8);
+            let numero = parseInt(dni.slice(0, -1), 10);
+            let letra = dni.slice(-1);
             let letraCorrecta = letras[numero % 23];
 
             if (letra == letraCorrecta) {
