@@ -30,16 +30,17 @@ DOM.frm.addEventListener("submit", (e) => {
 
     let inputs = document.querySelectorAll("input");
 
-    inputs.forEach(e => {
-        if(!e.validationMessage == ""){
+    inputs.forEach(a => {
+        if (!a.validationMessage == "") {
+            e.preventDefault();
             let span = document.createElement("span");
-            span.textContent = `${e.name} = ${e.validationMessage}`;
+            span.textContent = `${a.name} = ${a.validationMessage}`;
             span.style.color = "red";
             DOM.erroresDiv.appendChild(span);
         }
     });
 
-    if(!DOM.area.validationMessage == ""){
+    if (!DOM.area.validationMessage == "") {
         let span = document.createElement("span");
         span.textContent = `${DOM.area.name} = ${DOM.area.validationMessage}`;
         span.style.color = "red";
@@ -210,7 +211,7 @@ DOM.area.addEventListener("keydown", (e) => {
 })
 
 //Para cambiar el pattern dependiendo de lo que se elija
-function ChangeState() {
+DOM.dninieSelect.addEventListener("change", (e) => {
     let value = DOM.select.value;
     const patterns = {
         DNI: '[0-9]{8}[A-Z]',
@@ -223,13 +224,13 @@ function ChangeState() {
     } else {
         DOM.dni.setAttribute('disabled', 'disabled');
     }
-}
+});
 
 //Para mostrar la contraseña
-function passChange() {
+document.getElementById("checkpass").addEventListener("click", (e) => {
     let pass = document.getElementById('pass');
     let isPassword = pass.type === 'password';
 
     pass.type = isPassword ? 'text' : 'password';
-}
+});
 

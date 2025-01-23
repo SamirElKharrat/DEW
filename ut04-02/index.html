@@ -29,7 +29,7 @@
                                 placeholder="Introduce Contraseña" required>
                             <span class="error-message">Campo obligatorio, SOLO NUMEROS</span>
                             <div>
-                                <input onchange="passChange()" id="checkpass" name="checkpass" type="checkbox">
+                                <input id="checkpass" name="checkpass" type="checkbox">
                                 <label id="checkpassLabel" for="checkpass">Mostrar contraseña</label>
                             </div>
                         </div>
@@ -71,8 +71,7 @@
                             <label for="dni">DNI/NIE</label>
                             <span class="error" id="dniError"></span>
                             <div>
-                                <select id="stateSelect" onchange="ChangeState()" name="TipoDocumento"
-                                    class="select-dni" required>
+                                <select id="stateSelect" name="TipoDocumento" class="select-dni" required>
                                     <option value="none" hidden selected>---</option>
                                     <option value="DNI">DNI</option>
                                     <option value="NIE">NIE</option>
@@ -143,7 +142,8 @@
 
         </div>
     </div>
+    <script type="module" src="js/script.js"></script>
 </body>
-<script type="module" src="js/script.js"></script>
+
 
 </html>
